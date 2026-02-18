@@ -8,7 +8,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 # **Introduction to Software Testing**
 
-**Course:** 6.102 Software Construction
+**Course:** 211 Application Development
 **Topic:** Testing
 
 **Core Goals:**
@@ -23,39 +23,39 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 ### Slide 2: Learning Objectives
 
 By the end of this lecture, you should:
-*   Understand the value of testing and the test-first programming process 1.
-*   Be able to judge a test suite for correctness, thoroughness, and size 1.
-*   Design test suites by partitioning input spaces and selecting boundary values 1.
-*   Measure test effectiveness via code coverage 1.
-*   Distinguish between black box vs. glass box, unit vs. integration, and automated regression testing 1.
+*   Understand the value of testing and the test-first programming process.
+*   Be able to judge a test suite for correctness, thoroughness, and size.
+*   Design test suites by partitioning input spaces and selecting boundary values.
+*   Measure test effectiveness via code coverage.
+*   Distinguish between black box vs. glass box, unit vs. integration, and automated regression testing.
 
 ---
 
 ### Slide 3: Validation
 
-**Validation:** The general process of uncovering problems and increasing confidence in correctness 2.
+**Validation:** The general process of uncovering problems and increasing confidence in correctness.
 
 **Three main approaches:**
-*   **Formal Reasoning (Verification):** Constructing formal proofs of correctness 2.
-*   **Code Review:** Having others read and reason about your code 2.
-*   **Testing:** Running the program on selected inputs and checking results 2.
+*   **Formal Reasoning (Verification):** Constructing formal proofs of correctness.
+*   **Code Review:** Having others read and reason about your code.
+*   **Testing:** Running the program on selected inputs and checking results.
 
 ---
 
 ### Slide 4: Verification vs. Testing
 
-*   Verification is often tedious to do by hand; automated tool support is still an active research area 2.
-*   It is used for small, high-stakes components like OS schedulers or filesystems 2.
-*   Testing is the most common validation technique in industry, relying on execution rather than proof 2.
+*   Verification is often tedious to do by hand; automated tool support is still an active research area.
+*   It is used for small, high-stakes components like OS schedulers or filesystems.
+*   Testing is the most common validation technique in industry, relying on execution rather than proof.
 
 ---
 
 ### Slide 5: Why Software Testing is Hard (1/2)
 
 *   **Exhaustive testing is infeasible.**
-    *   Example: A 32-bit floating-point multiply ($a \times b$) has $2^{64}$ test cases 3.
+    *   Example: A 32-bit floating-point multiply ($a \times b$) has $2^{64}$ test cases.
 *   **Haphazard testing ("just try it") is unreliable.**
-    *   Unless the program is extremely buggy, arbitrary inputs are unlikely to find specific flaws 3.
+    *   Unless the program is extremely buggy, arbitrary inputs are unlikely to find specific flaws.
 
 ---
 
@@ -97,19 +97,16 @@ By the end of this lecture, you should:
 
 ### Slide 10: Test-First Programming
 
-Develop a single function in this specific order:
-1.  **Spec:** Write the specification 11.
-2.  **Test:** Write tests that exercise the specification 11.
-3.  **Implement:** Write the code 11.
+Develop a single function in this specific order:.  **Spec:** Write the specification ..  **Test:** Write tests that exercise the specification ..  **Implement:** Write the code .
 
-<!-- note: Writing tests before code forces you to understand the spec and adopt a "brutal" testing perspective before you become attached to your implementation 12, 13. -->
+<!-- note: Writing tests before code forces you to understand the spec and adopt a "brutal" testing perspective before you become attached to your implementation 12, . -->
 
 ---
 
 ### Slide 11: Benefits of Test-First Programming
 
-*   **Safety from Bugs:** Don't leave testing until the end when you have a "big pile of unvalidated code" 11.
-*   **Easier Debugging:** When you test as you develop, you know the bug is likely in the small piece of code you just wrote 11.
+*   **Safety from Bugs:** Don't leave testing until the end when you have a "big pile of unvalidated code" .
+*   **Easier Debugging:** When you test as you develop, you know the bug is likely in the small piece of code you just wrote .
 *   **Validation of Spec:** Writing tests helps you find ambiguities or missing corner cases in the specification before you waste time implementing them 14.
 
 ---
@@ -119,9 +116,9 @@ Develop a single function in this specific order:
 A good test suite has three properties:
 *   **Correct:** It is a legal client of the spec and accepts all legal implementations 15.
 *   **Thorough:** It finds bugs that programmers are likely to make 15.
-*   **Small:** It is fast to run and easy to maintain 12.
+*   **Small:** It is fast to run and easy to maintain .
 
-<!-- note: The goal of a tester is to make the program fail 12. -->
+<!-- note: The goal of a tester is to make the program fail . -->
 
 ---
 
@@ -162,26 +159,26 @@ A valid partition must be:
     *   $a = b$ 18, 21
 *   **Test Cases:** $(1, 2)$, $(10, -8)$, $(9, 9)$ 18.
 
-<!-- note: Note that $a=b$ is required for completeness; without it, you haven't covered the entire input space 21. -->
+<!-- note: Note that $a=b$ is required for completeness; without it, you haven't covered the entire input space . -->
 
 ---
 
 ### Slide 17: Include Boundaries
 
-Bugs often occur at boundaries between subdomains 22.
+Bugs often occur at boundaries between subdomains .
 
 **Why?**
-*   Off-by-one errors (using <= instead of <) 22.
-*   Special cases in code 22.
-*   Discontinuities (e.g., numeric overflow) 22.
+*   Off-by-one errors (using <= instead of <) .
+*   Special cases in code .
+*   Discontinuities (e.g., numeric overflow) .
 
 ---
 
 ### Slide 18: Common Boundaries to Test
 
-*   **Numbers:** 0, maximum/minimum values (e.g., Number.MAX_SAFE_INTEGER) 22, 23.
-*   **Collections:** Empty string, empty array, empty set 22.
-*   **Sequences:** The first and last elements of an array or string 22.
+*   **Numbers:** 0, maximum/minimum values (e.g., Number.MAX_SAFE_INTEGER) 22, .
+*   **Collections:** Empty string, empty array, empty set .
+*   **Sequences:** The first and last elements of an array or string .
 
 ---
 
@@ -220,17 +217,17 @@ Instead of just two subdomains, we incorporate 0 as its own subdomain:
 
 ### Slide 22: Automated Unit Testing
 
-*   **Unit Test:** Tests an individual module in isolation 31.
-*   **Automation:** Running tests and checking results without manual intervention 31.
-*   **Test Driver:** Code that invokes the module and checks results (e.g., Mocha for TypeScript) 31, 32.
+*   **Unit Test:** Tests an individual module in isolation .
+*   **Automation:** Running tests and checking results without manual intervention .
+*   **Test Driver:** Code that invokes the module and checks results (e.g., Mocha for TypeScript) 31, .
 
 ---
 
 ### Slide 23: Mocha Basics
 
-*   `describe()`: Groups related tests (a test suite) 33.
-*   `it()`: Defines a single test case 32.
-*   **Assertions:** Functions that check if the actual result matches the expected result 32.
+*   `describe()`: Groups related tests (a test suite) .
+*   `it()`: Defines a single test case .
+*   **Assertions:** Functions that check if the actual result matches the expected result .
 
 ```javascript
 it("covers a < b", function() {
@@ -263,7 +260,7 @@ it("covers a < b", function() {
 
 *   **Black Box Testing:** Choosing test cases only from the spec. You don't look at the code 40.
 *   **Glass Box Testing:** Choosing test cases with knowledge of the implementation 40.
-*   **Example:** If the code uses different algorithms for small vs. large arrays, partition at that specific threshold 40, 41.
+*   **Example:** If the code uses different algorithms for small vs. large arrays, partition at that specific threshold 40, .
 
 ---
 
@@ -273,9 +270,9 @@ How thoroughly does your test suite exercise the program? 42
 
 *   **Statement Coverage:** Is every statement run? 42
 *   **Branch Coverage:** Is every if/else direction taken? 42
-*   **Path Coverage:** Is every possible combination of branches taken? (Usually infeasible) 42, 43.
+*   **Path Coverage:** Is every possible combination of branches taken? (Usually infeasible) 42, .
 
-**Note:** 100% statement coverage is a common goal but does not guarantee the absence of bugs 43.
+**Note:** 100% statement coverage is a common goal but does not guarantee the absence of bugs .
 
 ---
 
@@ -283,10 +280,7 @@ How thoroughly does your test suite exercise the program? 42
 
 Tools like `c8` measure coverage automatically 44.
 
-**Process:**
-1.  Run black box tests.
-2.  Check coverage report.
-3.  Add glass box tests to cover "red" (unexecuted) lines 44, 45.
+**Process:**.  Run black box tests..  Check coverage report..  Add glass box tests to cover "red" (unexecuted) lines 44, 45.
 
 ---
 
@@ -310,18 +304,15 @@ Tools like `c8` measure coverage automatically 44.
 
 *   **Regression:** Reintroducing an old bug while making changes 49.
 *   **Regression Testing:** Running all tests after every change to ensure baseline behavior is preserved 49.
-*   **Rule:** When you find a bug, write a test case for it immediately (Test-first debugging) 50, 51.
+*   **Rule:** When you find a bug, write a test case for it immediately (Test-first debugging) 50, .
 
 ---
 
 ### Slide 32: Iterative Development
 
-Testing and implementation are iterative, not linear 52.
+Testing and implementation are iterative, not linear .
 
-**Plan for iteration:**
-1.  Start with a simple spec and a few partitions 53.
-2.  Implement a "brute-force" version first to validate the tests 54.
-3.  Refine and improve steadily 54.
+**Plan for iteration:**.  Start with a simple spec and a few partitions ..  Implement a "brute-force" version first to validate the tests 54..  Refine and improve steadily 54.
 
 ---
 
